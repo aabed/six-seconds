@@ -1,0 +1,110 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Six Seconds Reels</title><meta name="description" content="A psychological technology thriller in 24 short vertical videos.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: one cover, three book rows of vertical video cards; a viewer dialog plays a chapter large. Look: the series' own night-office navy and amber. */
+:root{--bg:#EEF1F5;--panel:#E1E7EE;--fg:#16202D;--mute:#5A6879;--rule:#C8D1DC;--accent:#B2601A;--alert:#B8402F;--cool:#1F6A98;
+--display:"Bebas Neue",Impact,"Arial Narrow",sans-serif;--body:"Source Serif 4",Georgia,"Times New Roman",serif;--mono:"DM Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1420;--panel:#13213A;--fg:#E8EDF3;--mute:#93A2B6;--rule:#223350;--accent:#F0A04B;--alert:#E5604F;--cool:#6DB7E4;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B1420;--panel:#13213A;--fg:#E8EDF3;--mute:#93A2B6;--rule:#223350;--accent:#F0A04B;--alert:#E5604F;--cool:#6DB7E4;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:18px;line-height:1.55;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 72px}
+.wrap{max-width:1120px;margin:0 auto}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin:0 0 10px}
+.cover{padding:36px 0 40px;border-bottom:1px solid var(--rule);display:grid;gap:18px}
+.cover h1{font-family:var(--display);font-weight:400;font-size:clamp(76px,17vw,168px);line-height:.88;letter-spacing:.02em;margin:0;text-wrap:balance}
+.cover h1 em{font-style:normal;color:var(--accent)}
+.cover p{margin:0;max-width:56ch;color:var(--mute)}
+.stats{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--fg)}
+.note{font-size:15px;color:var(--mute);border-left:3px solid var(--rule);padding-left:14px;max-width:70ch}
+.book{margin-top:56px}
+.book h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,6vw,52px);letter-spacing:.04em;margin:0 0 6px;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.book h2 span{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;margin-top:18px}
+.card{display:flex;flex-direction:column;gap:10px;min-width:0}
+.thumb{position:relative;aspect-ratio:9/16;border-radius:10px;overflow:hidden;background:var(--panel);border:1px solid var(--rule);padding:0;cursor:pointer;display:block;width:100%;color:inherit}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .play{position:absolute;inset:auto 12px 12px auto;width:46px;height:46px;border-radius:50%;background:var(--accent);display:grid;place-items:center}
+.thumb .play::before{content:"";border-left:14px solid var(--bg);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.thumb:hover,.thumb:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.thumb.soon{cursor:default;opacity:.55;display:grid;place-items:center;font-family:var(--display);font-size:26px;letter-spacing:.12em;color:var(--mute)}
+.card h3{margin:0;font-size:19px;line-height:1.25;text-wrap:balance}
+.card .meta{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.card p{margin:0;font-size:15px;color:var(--mute)}
+dialog{border:none;padding:0;background:transparent;max-width:100vw;max-height:100vh;color:var(--fg)}
+dialog::backdrop{background:rgba(5,9,16,.86)}
+.sheet{display:grid;grid-template-columns:minmax(0,420px) minmax(0,320px);gap:24px;align-items:start;background:var(--bg);border:1px solid var(--rule);border-radius:14px;padding:18px;max-width:min(96vw,820px);margin:auto}
+.sheet video{width:100%;max-height:80vh;border-radius:10px;background:#000;display:block}
+.info h3{font-family:var(--display);font-weight:400;font-size:42px;letter-spacing:.03em;line-height:1.05;margin:4px 0 10px}
+.info p{color:var(--mute);font-size:16px;margin:0 0 14px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+button.b{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:var(--panel);color:var(--fg);border:1px solid var(--rule);border-radius:8px;padding:10px 14px;cursor:pointer}
+button.b:hover,button.b:focus-visible{border-color:var(--accent);outline:none}
+@media (max-width:720px){.sheet{grid-template-columns:1fr}.sheet video{max-height:62vh}}
+footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--rule);font-size:14px;color:var(--mute)}
+</style></head><body style="margin:0">
+<div class="wrap">
+<header class="cover">
+<p class="eyebrow">A psychological technology thriller in 24 short videos</p>
+<h1>Six <em>Seconds</em></h1>
+<p>An engineer investigates a small attack on a small service and finds the clues point somewhere he did not want to look. Each chapter is one vertical video of about a minute and a half.</p>
+<p class="stats" id="stats"></p>
+<p class="note">A work of fiction. Caldera, Relay, Current and all characters and events are invented. The story explores blame, institutional power and the limits of technical evidence; the investigation does not prove who committed the attack.</p>
+</header>
+<main id="books"></main>
+<footer>New chapters are added here as each video is finished.</footer>
+</div>
+<dialog id="dlg" aria-label="Chapter player">
+<div class="sheet">
+<video id="vid" controls playsinline preload="none"></video>
+<div class="info"><p class="eyebrow" id="dEy"></p><h3 id="dTi"></h3><p id="dTe"></p>
+<div class="btns"><button class="b" id="prev" type="button">Previous</button><button class="b" id="next" type="button">Next</button><button class="b" id="close" type="button">Close</button></div></div>
+</div>
+</dialog>
+<script>
+var CH = [{"n": 1, "book": "Book One · The Fire", "title": "The Messages", "teaser": "The first unauthorized message went out at 2:11 a.m.", "dur": 82, "video": "media/ch01.mp4", "poster": "media/ch01.jpg"}, {"n": 2, "book": "Book One · The Fire", "title": "The Thing They Promised", "teaser": "Relay wasn't supposed to exist.", "dur": 79, "video": "media/ch02.mp4", "poster": "media/ch02.jpg"}, {"n": 3, "book": "Book One · The Fire", "title": "A Real Mistake", "teaser": "By sunrise, the attack was contained. The investigation wasn't.", "dur": 78, "video": "media/ch03.mp4", "poster": "media/ch03.jpg"}, {"n": 4, "book": "Book One · The Fire", "title": "The Message From Upstairs", "teaser": "The Architect never confronted Sami.", "dur": 72, "video": "media/ch04.mp4", "poster": "media/ch04.jpg"}, {"n": 5, "book": "Book One · The Fire", "title": "The Wrong Shape", "teaser": "The attack made no sense.", "dur": 84, "video": "media/ch05.mp4", "poster": "media/ch05.jpg"}, {"n": 6, "book": "Book One · The Fire", "title": "Negative Space", "teaser": "By the fourth day, Sami had learned more about what the attacker hadn't done than what they had.", "dur": 74, "video": "media/ch06.mp4", "poster": "media/ch06.jpg"}, {"n": 7, "book": "Book One · The Fire", "title": "Someone Searched", "teaser": "It began with a search that wasn't Sami's.", "dur": 80, "video": "media/ch07.mp4", "poster": "media/ch07.jpg"}, {"n": 8, "book": "Book One · The Fire", "title": "Six Seconds", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 9, "book": "Book Two · The Question", "title": "A Reason to Be There", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 10, "book": "Book Two · The Question", "title": "The Man Who Wasn't There", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 11, "book": "Book Two · The Question", "title": "The Shape of a Pattern", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 12, "book": "Book Two · The Question", "title": "A Name in the Margin", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 13, "book": "Book Two · The Question", "title": "Mara's Choice", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 14, "book": "Book Two · The Question", "title": "A Clean Room", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 15, "book": "Book Two · The Question", "title": "The Report Due Tomorrow", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 16, "book": "Book Two · The Question", "title": "The Second Half", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 17, "book": "Book Three · The Version That Survived", "title": "What Vanished", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 18, "book": "Book Three · The Version That Survived", "title": "The Ownership Chart", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 19, "book": "Book Three · The Version That Survived", "title": "A Question With No Verb", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 20, "book": "Book Three · The Version That Survived", "title": "The Quiet Meeting", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 21, "book": "Book Three · The Version That Survived", "title": "The Last Session", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 22, "book": "Book Three · The Version That Survived", "title": "The Weight of a File", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 23, "book": "Book Three · The Version That Survived", "title": "The Better Explanation", "teaser": "", "dur": null, "video": "", "poster": ""}, {"n": 24, "book": "Book Three · The Version That Survived", "title": "And Yet", "teaser": "", "dur": null, "video": "", "poster": ""}];
+var $ = function (id) { return document.getElementById(id); };
+function fmt(s) { var m = Math.floor(s / 60), r = s % 60; return m + ':' + (r < 10 ? '0' : '') + r; }
+var released = CH.filter(function (c) { return c.video; });
+$('stats').textContent = released.length + ' of ' + CH.length + ' chapters released';
+var books = {}, order = [];
+CH.forEach(function (c) { if (!books[c.book]) { books[c.book] = []; order.push(c.book); } books[c.book].push(c); });
+var root = $('books');
+order.forEach(function (name) {
+  var sec = document.createElement('section'); sec.className = 'book';
+  var parts = name.split(' \u00b7 ');
+  var h = document.createElement('h2'); h.textContent = parts[1]; var sp = document.createElement('span'); sp.textContent = parts[0]; h.appendChild(sp); sec.appendChild(h);
+  var g = document.createElement('div'); g.className = 'grid';
+  books[name].forEach(function (c) {
+    var card = document.createElement('article'); card.className = 'card'; card.id = 'ch' + c.n;
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'thumb' + (c.video ? '' : ' soon');
+    if (c.video) { var im = document.createElement('img'); im.alt = 'Chapter ' + c.n + ' still'; im.loading = 'lazy'; im.src = c.poster; b.appendChild(im); var pl = document.createElement('span'); pl.className = 'play'; b.appendChild(pl); b.setAttribute('aria-label', 'Play chapter ' + c.n + ': ' + c.title); b.addEventListener('click', function () { openCh(c.n); }); }
+    else { b.disabled = true; b.textContent = 'COMING SOON'; }
+    card.appendChild(b);
+    var m = document.createElement('div'); m.className = 'meta'; m.textContent = 'Chapter ' + c.n + (c.dur ? ' \u00b7 ' + fmt(c.dur) : ''); card.appendChild(m);
+    var t = document.createElement('h3'); t.textContent = c.title; card.appendChild(t);
+    if (c.teaser) { var p = document.createElement('p'); p.textContent = c.teaser; card.appendChild(p); }
+    g.appendChild(card);
+  });
+  sec.appendChild(g); root.appendChild(sec);
+});
+var dlg = $('dlg'), vid = $('vid'), cur = 0;
+function openCh(n, noHash) {
+  var c = CH[n - 1]; if (!c || !c.video) return; cur = n;
+  vid.src = c.video; vid.poster = c.poster; $('dEy').textContent = c.book + ' \u00b7 Chapter ' + n; $('dTi').textContent = c.title; $('dTe').textContent = c.teaser;
+  if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); }
+  try { vid.play(); } catch (e) {}
+  $('prev').disabled = !prevN(n); $('next').disabled = !nextN(n);
+}
+function prevN(n) { for (var i = n - 1; i >= 1; i--) if (CH[i - 1].video) return i; return 0; }
+function nextN(n) { for (var i = n + 1; i <= CH.length; i++) if (CH[i - 1].video) return i; return 0; }
+$('prev').addEventListener('click', function () { var p = prevN(cur); if (p) openCh(p); });
+$('next').addEventListener('click', function () { var p = nextN(cur); if (p) openCh(p); });
+function shut() { vid.pause(); vid.removeAttribute('src'); vid.load(); if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
+$('close').addEventListener('click', shut);
+dlg.addEventListener('close', function () { vid.pause(); });
+vid.addEventListener('ended', function () { var p = nextN(cur); if (p) openCh(p); });
+dlg.addEventListener('click', function (e) { if (e.target === dlg) shut(); });
+var m = /^#ch(\d+)$/.exec(location.hash || ''); if (m) openCh(+m[1]);
+</script>
+</body></html>
